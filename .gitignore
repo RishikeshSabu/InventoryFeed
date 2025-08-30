@@ -1,0 +1,20 @@
+# Ignore Eclipse project settings
+
+*.lock
+*.lock_info
+.metadata/
+*.class
+bin/
+.settings/
+.classpath
+.project
+# Ignore OS-specific files
+.DS_Store
+Thumbs.db
+
+# Ignore compiled Java files anywhere
+**/*.class
+
+# Ignore backup or temp files
+*~
+*.swp
