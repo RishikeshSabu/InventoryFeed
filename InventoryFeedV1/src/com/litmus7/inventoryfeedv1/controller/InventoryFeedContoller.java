@@ -17,24 +17,26 @@ public class InventoryFeedContoller {
 	private static final Logger logger = LogManager.getLogger(InventoryFeedContoller.class);
 	public Service service=new Service();
 	private static final String INPUT_DIR =Constants.INPUT_FOLDER;
-	private int length=0;
 	List<String> messages=new ArrayList<>();
 	public Response<List<String>> loadAndSaveProductsFromInputFolder(){
+		long startTime=System.currentTimeMillis();
 		try {
 			File[] files=GetAllCSVFiles.getCSVFiles(INPUT_DIR);
 			if(files==null||files.length==0) {
 				return new Response<>(500,"Files cannot be empty");
 			}
-			try {
-				for(File file:files) {
-					int[] results=service.loadAndSaveProducts(file);
-					length+=results.length;
-					messages.add("Batch Insertion Success for "+file.getName());
-				}
-			}catch(InventoryFeedServiceException e) {
-				messages.add(e.getMessage());
-			}
 			
+			for(File file:files) {
+				try {
+					int[] results=service.loadAndSaveProducts(file);
+					messages.add("Batch Insertion Success for "+file.getName());
+				}catch(InventoryFeedServiceException e) {
+					messages.add(e.getMessage());
+				}	
+			}
+			long endTime=System.currentTimeMillis();
+			long timeTaken=endTime-startTime;
+			System.out.println(timeTaken);
 			return new Response<>(200,messages);
 		}catch(Exception e){
 			return new Response<>(500,e.getMessage());

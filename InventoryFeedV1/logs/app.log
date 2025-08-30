@@ -39,3 +39,74 @@ Caused by: java.sql.SQLIntegrityConstraintViolationException: Duplicate entry '3
 2025-08-30 21:24:49,528 - com.litmus7.inventoryfeedv1.dao.InventoryFeedDao - [addProductsInBatch] -(INFO) - Batch inserted successfully - 
 2025-08-30 21:24:49,568 - com.litmus7.inventoryfeedv1.dao.InventoryFeedDao - [addProductsInBatch] -(INFO) - Batch inserted successfully - 
 2025-08-30 21:24:49,597 - com.litmus7.inventoryfeedv1.dao.InventoryFeedDao - [addProductsInBatch] -(INFO) - Batch inserted successfully - 
+2025-08-30 22:43:33,846 - com.litmus7.inventoryfeedv1.dao.InventoryFeedDao - [addProductsInBatch] -(ERROR) - Failed batch insertion - 
+java.sql.BatchUpdateException: Duplicate entry '103' for key 'product.PRIMARY'
+	at com.mysql.cj.jdbc.exceptions.SQLError.createBatchUpdateException(SQLError.java:214) ~[mysql-connector-j-9.3.0.jar:9.3.0]
+	at com.mysql.cj.jdbc.ClientPreparedStatement.executeBatchSerially(ClientPreparedStatement.java:885) ~[mysql-connector-j-9.3.0.jar:9.3.0]
+	at com.mysql.cj.jdbc.ClientPreparedStatement.executeBatchInternal(ClientPreparedStatement.java:466) ~[mysql-connector-j-9.3.0.jar:9.3.0]
+	at com.mysql.cj.jdbc.StatementImpl.executeBatch(StatementImpl.java:858) ~[mysql-connector-j-9.3.0.jar:9.3.0]
+	at com.litmus7.inventoryfeedv1.dao.InventoryFeedDao.addProductsInBatch(InventoryFeedDao.java:34) [bin/:?]
+	at com.litmus7.inventoryfeedv1.service.Service.loadAndSaveProducts(Service.java:44) [bin/:?]
+	at com.litmus7.inventoryfeedv1.controller.InventoryFeedContoller.loadAndSaveProductsFromInputFolder(InventoryFeedContoller.java:30) [bin/:?]
+	at com.litmus7.inventoryfeedv1.ui.InventoryApp.main(InventoryApp.java:13) [bin/:?]
+Caused by: java.sql.SQLIntegrityConstraintViolationException: Duplicate entry '103' for key 'product.PRIMARY'
+	at com.mysql.cj.jdbc.exceptions.SQLError.createSQLException(SQLError.java:109) ~[mysql-connector-j-9.3.0.jar:9.3.0]
+	at com.mysql.cj.jdbc.exceptions.SQLExceptionsMapping.translateException(SQLExceptionsMapping.java:114) ~[mysql-connector-j-9.3.0.jar:9.3.0]
+	at com.mysql.cj.jdbc.ClientPreparedStatement.executeInternal(ClientPreparedStatement.java:990) ~[mysql-connector-j-9.3.0.jar:9.3.0]
+	at com.mysql.cj.jdbc.ClientPreparedStatement.executeUpdateInternal(ClientPreparedStatement.java:1168) ~[mysql-connector-j-9.3.0.jar:9.3.0]
+	at com.mysql.cj.jdbc.ClientPreparedStatement.executeBatchSerially(ClientPreparedStatement.java:864) ~[mysql-connector-j-9.3.0.jar:9.3.0]
+	... 6 more
+2025-08-30 22:53:51,738 - com.litmus7.inventoryfeedv1.dao.InventoryFeedDao - [addProductsInBatch] -(INFO) - Batch inserted successfully - 
+2025-08-30 22:53:51,778 - com.litmus7.inventoryfeedv1.dao.InventoryFeedDao - [addProductsInBatch] -(INFO) - Batch inserted successfully - 
+2025-08-30 22:53:52,222 - com.litmus7.inventoryfeedv1.dao.InventoryFeedDao - [addProductsInBatch] -(ERROR) - Failed batch insertion - 
+java.sql.BatchUpdateException: Duplicate entry '303' for key 'product.PRIMARY'
+	at com.mysql.cj.jdbc.exceptions.SQLError.createBatchUpdateException(SQLError.java:214) ~[mysql-connector-j-9.3.0.jar:9.3.0]
+	at com.mysql.cj.jdbc.ClientPreparedStatement.executeBatchSerially(ClientPreparedStatement.java:885) ~[mysql-connector-j-9.3.0.jar:9.3.0]
+	at com.mysql.cj.jdbc.ClientPreparedStatement.executeBatchInternal(ClientPreparedStatement.java:466) ~[mysql-connector-j-9.3.0.jar:9.3.0]
+	at com.mysql.cj.jdbc.StatementImpl.executeBatch(StatementImpl.java:858) ~[mysql-connector-j-9.3.0.jar:9.3.0]
+	at com.litmus7.inventoryfeedv1.dao.InventoryFeedDao.addProductsInBatch(InventoryFeedDao.java:34) [bin/:?]
+	at com.litmus7.inventoryfeedv1.service.Service.loadAndSaveProducts(Service.java:44) [bin/:?]
+	at com.litmus7.inventoryfeedv1.controller.InventoryFeedContoller.loadAndSaveProductsFromInputFolder(InventoryFeedContoller.java:31) [bin/:?]
+	at com.litmus7.inventoryfeedv1.ui.InventoryApp.main(InventoryApp.java:13) [bin/:?]
+Caused by: java.sql.SQLIntegrityConstraintViolationException: Duplicate entry '303' for key 'product.PRIMARY'
+	at com.mysql.cj.jdbc.exceptions.SQLError.createSQLException(SQLError.java:109) ~[mysql-connector-j-9.3.0.jar:9.3.0]
+	at com.mysql.cj.jdbc.exceptions.SQLExceptionsMapping.translateException(SQLExceptionsMapping.java:114) ~[mysql-connector-j-9.3.0.jar:9.3.0]
+	at com.mysql.cj.jdbc.ClientPreparedStatement.executeInternal(ClientPreparedStatement.java:990) ~[mysql-connector-j-9.3.0.jar:9.3.0]
+	at com.mysql.cj.jdbc.ClientPreparedStatement.executeUpdateInternal(ClientPreparedStatement.java:1168) ~[mysql-connector-j-9.3.0.jar:9.3.0]
+	at com.mysql.cj.jdbc.ClientPreparedStatement.executeBatchSerially(ClientPreparedStatement.java:864) ~[mysql-connector-j-9.3.0.jar:9.3.0]
+	... 6 more
+2025-08-30 22:56:12,158 - com.litmus7.inventoryfeedv1.dao.InventoryFeedDao - [addProductsInBatch] -(ERROR) - Failed batch insertion - 
+java.sql.BatchUpdateException: Duplicate entry '103' for key 'product.PRIMARY'
+	at com.mysql.cj.jdbc.exceptions.SQLError.createBatchUpdateException(SQLError.java:214) ~[mysql-connector-j-9.3.0.jar:9.3.0]
+	at com.mysql.cj.jdbc.ClientPreparedStatement.executeBatchSerially(ClientPreparedStatement.java:885) ~[mysql-connector-j-9.3.0.jar:9.3.0]
+	at com.mysql.cj.jdbc.ClientPreparedStatement.executeBatchInternal(ClientPreparedStatement.java:466) ~[mysql-connector-j-9.3.0.jar:9.3.0]
+	at com.mysql.cj.jdbc.StatementImpl.executeBatch(StatementImpl.java:858) ~[mysql-connector-j-9.3.0.jar:9.3.0]
+	at com.litmus7.inventoryfeedv1.dao.InventoryFeedDao.addProductsInBatch(InventoryFeedDao.java:34) [bin/:?]
+	at com.litmus7.inventoryfeedv1.service.Service.loadAndSaveProducts(Service.java:44) [bin/:?]
+	at com.litmus7.inventoryfeedv1.controller.InventoryFeedContoller.loadAndSaveProductsFromInputFolder(InventoryFeedContoller.java:31) [bin/:?]
+	at com.litmus7.inventoryfeedv1.ui.InventoryApp.main(InventoryApp.java:13) [bin/:?]
+Caused by: java.sql.SQLIntegrityConstraintViolationException: Duplicate entry '103' for key 'product.PRIMARY'
+	at com.mysql.cj.jdbc.exceptions.SQLError.createSQLException(SQLError.java:109) ~[mysql-connector-j-9.3.0.jar:9.3.0]
+	at com.mysql.cj.jdbc.exceptions.SQLExceptionsMapping.translateException(SQLExceptionsMapping.java:114) ~[mysql-connector-j-9.3.0.jar:9.3.0]
+	at com.mysql.cj.jdbc.ClientPreparedStatement.executeInternal(ClientPreparedStatement.java:990) ~[mysql-connector-j-9.3.0.jar:9.3.0]
+	at com.mysql.cj.jdbc.ClientPreparedStatement.executeUpdateInternal(ClientPreparedStatement.java:1168) ~[mysql-connector-j-9.3.0.jar:9.3.0]
+	at com.mysql.cj.jdbc.ClientPreparedStatement.executeBatchSerially(ClientPreparedStatement.java:864) ~[mysql-connector-j-9.3.0.jar:9.3.0]
+	... 6 more
+2025-08-30 22:56:12,255 - com.litmus7.inventoryfeedv1.dao.InventoryFeedDao - [addProductsInBatch] -(ERROR) - Failed batch insertion - 
+java.sql.BatchUpdateException: Duplicate entry '203' for key 'product.PRIMARY'
+	at com.mysql.cj.jdbc.exceptions.SQLError.createBatchUpdateException(SQLError.java:214) ~[mysql-connector-j-9.3.0.jar:9.3.0]
+	at com.mysql.cj.jdbc.ClientPreparedStatement.executeBatchSerially(ClientPreparedStatement.java:885) ~[mysql-connector-j-9.3.0.jar:9.3.0]
+	at com.mysql.cj.jdbc.ClientPreparedStatement.executeBatchInternal(ClientPreparedStatement.java:466) ~[mysql-connector-j-9.3.0.jar:9.3.0]
+	at com.mysql.cj.jdbc.StatementImpl.executeBatch(StatementImpl.java:858) ~[mysql-connector-j-9.3.0.jar:9.3.0]
+	at com.litmus7.inventoryfeedv1.dao.InventoryFeedDao.addProductsInBatch(InventoryFeedDao.java:34) [bin/:?]
+	at com.litmus7.inventoryfeedv1.service.Service.loadAndSaveProducts(Service.java:44) [bin/:?]
+	at com.litmus7.inventoryfeedv1.controller.InventoryFeedContoller.loadAndSaveProductsFromInputFolder(InventoryFeedContoller.java:31) [bin/:?]
+	at com.litmus7.inventoryfeedv1.ui.InventoryApp.main(InventoryApp.java:13) [bin/:?]
+Caused by: java.sql.SQLIntegrityConstraintViolationException: Duplicate entry '203' for key 'product.PRIMARY'
+	at com.mysql.cj.jdbc.exceptions.SQLError.createSQLException(SQLError.java:109) ~[mysql-connector-j-9.3.0.jar:9.3.0]
+	at com.mysql.cj.jdbc.exceptions.SQLExceptionsMapping.translateException(SQLExceptionsMapping.java:114) ~[mysql-connector-j-9.3.0.jar:9.3.0]
+	at com.mysql.cj.jdbc.ClientPreparedStatement.executeInternal(ClientPreparedStatement.java:990) ~[mysql-connector-j-9.3.0.jar:9.3.0]
+	at com.mysql.cj.jdbc.ClientPreparedStatement.executeUpdateInternal(ClientPreparedStatement.java:1168) ~[mysql-connector-j-9.3.0.jar:9.3.0]
+	at com.mysql.cj.jdbc.ClientPreparedStatement.executeBatchSerially(ClientPreparedStatement.java:864) ~[mysql-connector-j-9.3.0.jar:9.3.0]
+	... 6 more
+2025-08-30 22:56:12,297 - com.litmus7.inventoryfeedv1.dao.InventoryFeedDao - [addProductsInBatch] -(INFO) - Batch inserted successfully - 

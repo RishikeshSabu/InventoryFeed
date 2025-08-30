@@ -8,7 +8,7 @@ public class Constants {
 		public static final String CSV_ERROR="Unable to read CSC file";
 		
 		//folderAddress
-		public static final String PROCESSED_FOLDER="D:/ThreadAssignment/InventoryFeedV1/CSVFiles/processed/";
-		public static final String ERROR_FOLDERS="D:/ThreadAssignment/InventoryFeedV1/CSVFiles/error/";
-		public static final String INPUT_FOLDER="D:/ThreadAssignment/InventoryFeedV1/CSVFiles/input/";
+		public static final String PROCESSED_FOLDER="D:/ThreadAssignment/InventoryFeedV2/CSVFiles/processed/";
+		public static final String ERROR_FOLDERS="D:/ThreadAssignment/InventoryFeedV2/CSVFiles/error/";
+		public static final String INPUT_FOLDER="D:/ThreadAssignment/InventoryFeedV2/CSVFiles/input/";
 }
