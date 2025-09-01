@@ -1,0 +1,56 @@
+2025-09-01 18:17:26,717 - com.litmus7.inventoryfeedv2.controller.InventoryFeedController - [lambda$0] -(INFO) - Thread started for CSV3.csv - 
+2025-09-01 18:17:26,717 - com.litmus7.inventoryfeedv2.controller.InventoryFeedController - [lambda$0] -(INFO) - Thread started for CSV1.csv - 
+2025-09-01 18:17:26,717 - com.litmus7.inventoryfeedv2.controller.InventoryFeedController - [lambda$0] -(INFO) - Thread started for CSV2.csv - 
+2025-09-01 18:17:27,264 - com.litmus7.inventoryfeedv2.dao.InventoryFeedDao - [addProductsInBatch] -(INFO) - Batch inserted successfully - 
+2025-09-01 18:17:27,264 - com.litmus7.inventoryfeedv2.dao.InventoryFeedDao - [addProductsInBatch] -(INFO) - Batch inserted successfully - 
+2025-09-01 18:17:27,264 - com.litmus7.inventoryfeedv2.dao.InventoryFeedDao - [addProductsInBatch] -(INFO) - Batch inserted successfully - 
+2025-09-01 18:17:27,281 - com.litmus7.inventoryfeedv2.controller.InventoryFeedController - [lambda$0] -(INFO) - Thread completed for file: CSV3.csv - 
+2025-09-01 18:17:27,301 - com.litmus7.inventoryfeedv2.controller.InventoryFeedController - [lambda$0] -(INFO) - Thread completed for file: CSV2.csv - 
+2025-09-01 18:17:27,301 - com.litmus7.inventoryfeedv2.controller.InventoryFeedController - [lambda$0] -(INFO) - Thread completed for file: CSV1.csv - 
+2025-09-01 18:31:03,876 - com.litmus7.inventoryfeedv3.controller.InventoryFeedController - [lambda$0] -(INFO) - Thread started for CSV3.csv - 
+2025-09-01 18:31:03,876 - com.litmus7.inventoryfeedv3.controller.InventoryFeedController - [lambda$0] -(INFO) - Thread started for CSV2.csv - 
+2025-09-01 18:31:03,876 - com.litmus7.inventoryfeedv3.controller.InventoryFeedController - [lambda$0] -(INFO) - Thread started for CSV1.csv - 
+2025-09-01 18:31:04,401 - com.litmus7.inventoryfeedv3.dao.InventoryFeedDao - [addProductsInBatch] -(INFO) - Batch inserted successfully - 
+2025-09-01 18:31:04,415 - com.litmus7.inventoryfeedv3.controller.InventoryFeedController - [lambda$0] -(INFO) - Thread completed for file: CSV3.csv - 
+2025-09-01 18:31:04,820 - com.litmus7.inventoryfeedv3.dao.InventoryFeedDao - [addProductsInBatch] -(ERROR) - Failed batch insertion - 
+java.sql.BatchUpdateException: Duplicate entry '203' for key 'product.PRIMARY'
+	at com.mysql.cj.jdbc.exceptions.SQLError.createBatchUpdateException(SQLError.java:214) ~[mysql-connector-j-9.3.0.jar:9.3.0]
+	at com.mysql.cj.jdbc.ClientPreparedStatement.executeBatchSerially(ClientPreparedStatement.java:885) ~[mysql-connector-j-9.3.0.jar:9.3.0]
+	at com.mysql.cj.jdbc.ClientPreparedStatement.executeBatchInternal(ClientPreparedStatement.java:466) ~[mysql-connector-j-9.3.0.jar:9.3.0]
+	at com.mysql.cj.jdbc.StatementImpl.executeBatch(StatementImpl.java:858) ~[mysql-connector-j-9.3.0.jar:9.3.0]
+	at com.litmus7.inventoryfeedv3.dao.InventoryFeedDao.addProductsInBatch(InventoryFeedDao.java:34) ~[bin/:?]
+	at com.litmus7.inventoryfeedv3.service.Service.loadAndSaveProducts(Service.java:44) ~[bin/:?]
+	at com.litmus7.inventoryfeedv3.controller.InventoryFeedController.lambda$0(InventoryFeedController.java:38) ~[bin/:?]
+	at java.util.concurrent.Executors$RunnableAdapter.call(Executors.java:572) ~[?:?]
+	at java.util.concurrent.FutureTask.run(FutureTask.java:317) ~[?:?]
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1144) ~[?:?]
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:642) ~[?:?]
+	at java.lang.Thread.run(Thread.java:1583) [?:?]
+Caused by: java.sql.SQLIntegrityConstraintViolationException: Duplicate entry '203' for key 'product.PRIMARY'
+	at com.mysql.cj.jdbc.exceptions.SQLError.createSQLException(SQLError.java:109) ~[mysql-connector-j-9.3.0.jar:9.3.0]
+	at com.mysql.cj.jdbc.exceptions.SQLExceptionsMapping.translateException(SQLExceptionsMapping.java:114) ~[mysql-connector-j-9.3.0.jar:9.3.0]
+	at com.mysql.cj.jdbc.ClientPreparedStatement.executeInternal(ClientPreparedStatement.java:990) ~[mysql-connector-j-9.3.0.jar:9.3.0]
+	at com.mysql.cj.jdbc.ClientPreparedStatement.executeUpdateInternal(ClientPreparedStatement.java:1168) ~[mysql-connector-j-9.3.0.jar:9.3.0]
+	at com.mysql.cj.jdbc.ClientPreparedStatement.executeBatchSerially(ClientPreparedStatement.java:864) ~[mysql-connector-j-9.3.0.jar:9.3.0]
+	... 10 more
+2025-09-01 18:31:04,820 - com.litmus7.inventoryfeedv3.dao.InventoryFeedDao - [addProductsInBatch] -(ERROR) - Failed batch insertion - 
+java.sql.BatchUpdateException: Duplicate entry '103' for key 'product.PRIMARY'
+	at com.mysql.cj.jdbc.exceptions.SQLError.createBatchUpdateException(SQLError.java:214) ~[mysql-connector-j-9.3.0.jar:9.3.0]
+	at com.mysql.cj.jdbc.ClientPreparedStatement.executeBatchSerially(ClientPreparedStatement.java:885) ~[mysql-connector-j-9.3.0.jar:9.3.0]
+	at com.mysql.cj.jdbc.ClientPreparedStatement.executeBatchInternal(ClientPreparedStatement.java:466) ~[mysql-connector-j-9.3.0.jar:9.3.0]
+	at com.mysql.cj.jdbc.StatementImpl.executeBatch(StatementImpl.java:858) ~[mysql-connector-j-9.3.0.jar:9.3.0]
+	at com.litmus7.inventoryfeedv3.dao.InventoryFeedDao.addProductsInBatch(InventoryFeedDao.java:34) ~[bin/:?]
+	at com.litmus7.inventoryfeedv3.service.Service.loadAndSaveProducts(Service.java:44) ~[bin/:?]
+	at com.litmus7.inventoryfeedv3.controller.InventoryFeedController.lambda$0(InventoryFeedController.java:38) ~[bin/:?]
+	at java.util.concurrent.Executors$RunnableAdapter.call(Executors.java:572) ~[?:?]
+	at java.util.concurrent.FutureTask.run(FutureTask.java:317) ~[?:?]
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1144) ~[?:?]
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:642) ~[?:?]
+	at java.lang.Thread.run(Thread.java:1583) [?:?]
+Caused by: java.sql.SQLIntegrityConstraintViolationException: Duplicate entry '103' for key 'product.PRIMARY'
+	at com.mysql.cj.jdbc.exceptions.SQLError.createSQLException(SQLError.java:109) ~[mysql-connector-j-9.3.0.jar:9.3.0]
+	at com.mysql.cj.jdbc.exceptions.SQLExceptionsMapping.translateException(SQLExceptionsMapping.java:114) ~[mysql-connector-j-9.3.0.jar:9.3.0]
+	at com.mysql.cj.jdbc.ClientPreparedStatement.executeInternal(ClientPreparedStatement.java:990) ~[mysql-connector-j-9.3.0.jar:9.3.0]
+	at com.mysql.cj.jdbc.ClientPreparedStatement.executeUpdateInternal(ClientPreparedStatement.java:1168) ~[mysql-connector-j-9.3.0.jar:9.3.0]
+	at com.mysql.cj.jdbc.ClientPreparedStatement.executeBatchSerially(ClientPreparedStatement.java:864) ~[mysql-connector-j-9.3.0.jar:9.3.0]
+	... 10 more
