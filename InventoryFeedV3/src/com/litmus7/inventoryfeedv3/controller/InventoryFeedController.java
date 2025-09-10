@@ -14,38 +14,20 @@ import com.litmus7.inventoryfeedv3.constants.Constants;
 import com.litmus7.inventoryfeedv3.dto.Response;
 import com.litmus7.inventoryfeedv3.exceptions.InventoryFeedServiceException;
 import com.litmus7.inventoryfeedv3.service.Service;
+import com.litmus7.inventoryfeedv3.util.ApplicationProperties;
 import com.litmus7.inventoryfeedv3.util.GetAllCSVFiles;
 
 public class InventoryFeedController {
 	private static final Logger logger = LogManager.getLogger(InventoryFeedController.class);
 	public Service service=new Service();
-	private static final String INPUT_DIR =Constants.INPUT_FOLDER;
+	private static final String INPUT_DIR =ApplicationProperties.getInputFolder();
 	private int length=0;
 	List<String> messages=new ArrayList<>();
 	List<Thread> threads = new ArrayList<>();
 	public Response<List<String>> loadAndSaveProductsFromInputFolder(){
 		long startTime=System.currentTimeMillis();
 		try {
-			File[] files=GetAllCSVFiles.getCSVFiles(INPUT_DIR);
-			if(files==null||files.length==0) {
-				return new Response<>(500,"Files cannot be empty");
-			}
-			ExecutorService executor=Executors.newFixedThreadPool(3);
-			for(File file:files) {
-				executor.submit(()->{
-					try {
-						logger.info("Thread started for {}",file.getName());
-						service.loadAndSaveProducts(file);
-						logger.info("Thread completed for file: {}",file.getName());
-					}catch(InventoryFeedServiceException e) {
-						messages.add(e.getMessage());
-					}
-				},"Thread - "+file.getName());
-				messages.add("Started processing "+file.getName());
-			}
-			executor.shutdown();
-			executor.awaitTermination(1, TimeUnit.HOURS);
-			messages.add("Progaram ended");
+			List<String> messages=service.loadAndSaveFromInput(INPUT_DIR);
 			long endTime=System.currentTimeMillis();
 			long timeTaken=endTime-startTime;
 			System.out.println(timeTaken);

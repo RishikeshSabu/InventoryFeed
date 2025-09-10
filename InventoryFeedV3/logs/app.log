@@ -54,3 +54,21 @@ Caused by: java.sql.SQLIntegrityConstraintViolationException: Duplicate entry '1
 	at com.mysql.cj.jdbc.ClientPreparedStatement.executeUpdateInternal(ClientPreparedStatement.java:1168) ~[mysql-connector-j-9.3.0.jar:9.3.0]
 	at com.mysql.cj.jdbc.ClientPreparedStatement.executeBatchSerially(ClientPreparedStatement.java:864) ~[mysql-connector-j-9.3.0.jar:9.3.0]
 	... 10 more
+2025-09-10 15:19:21,320 - com.litmus7.inventoryfeedv3.service.Service - [lambda$0] -(INFO) - Thread started for CSV2.csv - 
+2025-09-10 15:19:21,321 - com.litmus7.inventoryfeedv3.service.Service - [lambda$0] -(INFO) - Thread started for CSV3.csv - 
+2025-09-10 15:19:21,321 - com.litmus7.inventoryfeedv3.service.Service - [lambda$0] -(INFO) - Thread started for CSV1.csv - 
+2025-09-10 15:19:21,840 - com.litmus7.inventoryfeedv3.dao.InventoryFeedDao - [addProductsInBatch] -(INFO) - Batch inserted successfully - 
+2025-09-10 15:19:21,840 - com.litmus7.inventoryfeedv3.dao.InventoryFeedDao - [addProductsInBatch] -(INFO) - Batch inserted successfully - 
+2025-09-10 15:19:21,842 - com.litmus7.inventoryfeedv3.dao.InventoryFeedDao - [addProductsInBatch] -(INFO) - Batch inserted successfully - 
+2025-09-10 15:19:21,855 - com.litmus7.inventoryfeedv3.service.Service - [lambda$0] -(INFO) - Thread completed for file: CSV3.csv - 
+2025-09-10 15:19:21,875 - com.litmus7.inventoryfeedv3.service.Service - [lambda$0] -(INFO) - Thread completed for file: CSV1.csv - 
+2025-09-10 15:19:21,875 - com.litmus7.inventoryfeedv3.service.Service - [lambda$0] -(INFO) - Thread completed for file: CSV2.csv - 
+2025-09-10 16:12:36,137 - com.litmus7.inventoryfeedv3.service.Service - [lambda$0] -(INFO) - Thread started for CSV1.csv - 
+2025-09-10 16:12:36,137 - com.litmus7.inventoryfeedv3.service.Service - [lambda$0] -(INFO) - Thread started for CSV3.csv - 
+2025-09-10 16:12:36,137 - com.litmus7.inventoryfeedv3.service.Service - [lambda$0] -(INFO) - Thread started for CSV2.csv - 
+2025-09-10 16:12:36,603 - com.litmus7.inventoryfeedv3.dao.InventoryFeedDao - [addProductsInBatch] -(INFO) - Batch inserted successfully - 
+2025-09-10 16:12:36,603 - com.litmus7.inventoryfeedv3.dao.InventoryFeedDao - [addProductsInBatch] -(INFO) - Batch inserted successfully - 
+2025-09-10 16:12:36,604 - com.litmus7.inventoryfeedv3.dao.InventoryFeedDao - [addProductsInBatch] -(INFO) - Batch inserted successfully - 
+2025-09-10 16:12:36,610 - com.litmus7.inventoryfeedv3.service.Service - [lambda$0] -(INFO) - Thread completed for file: CSV1.csv - 
+2025-09-10 16:12:36,610 - com.litmus7.inventoryfeedv3.service.Service - [lambda$0] -(INFO) - Thread completed for file: CSV2.csv - 
+2025-09-10 16:12:36,610 - com.litmus7.inventoryfeedv3.service.Service - [lambda$0] -(INFO) - Thread completed for file: CSV3.csv - 

@@ -8,6 +8,8 @@ import com.litmus7.inventoryfeedv2.exceptions.CSVFileAccessException;
 import com.litmus7.inventoryfeedv2.exceptions.InventoryFeedDaoException;
 import com.litmus7.inventoryfeedv2.exceptions.InventoryFeedServiceException;
 import com.litmus7.inventoryfeedv2.exceptions.ValidationFailedException;
+import com.litmus7.inventoryfeedv2.util.ApplicationProperties;
+import com.litmus7.inventoryfeedv2.util.GetAllCSVFiles;
 import com.litmus7.inventoryfeedv2.util.MoveFile;
 import com.litmus7.inventoryfeedv2.util.ReadCSV;
 import com.litmus7.inventoryfeedv2.util.Validation;
@@ -42,7 +44,7 @@ public class Service {
 			}
 			int[] results;
 			results=dao.addProductsInBatch(products);
-			MoveFile.moveFile(file,Constants.PROCESSED_FOLDER);
+			MoveFile.moveFile(file,ApplicationProperties.getProcessedFolder());
 			return results;
 			
 		}catch(CSVFileAccessException e) {
@@ -51,8 +53,40 @@ public class Service {
 		}catch(ValidationFailedException e) {
 			throw new InventoryFeedServiceException(e.getMessage(),e);
 		}catch(InventoryFeedDaoException e) {
-			MoveFile.moveFile(file,Constants.ERROR_FOLDERS);
+			MoveFile.moveFile(file,ApplicationProperties.getErrorFolder());
 			throw new InventoryFeedServiceException(e.getMessage()+" for "+file.getName(),e);
 		}
+	}
+	public List<String> loadAndSaveFrominput(String input_DIR) throws InventoryFeedServiceException{
+		List<String> messages=new ArrayList<>();
+		List<Thread> threads=new ArrayList<>();
+		File[] files=GetAllCSVFiles.getCSVFiles(input_DIR);
+		if(files==null||files.length==0) {
+			throw new InventoryFeedServiceException("Files cannot be empty");
+		}
+		for(File file:files) {
+			Thread thread=new Thread(()->{
+				try {
+					logger.info("Thread started for {}",file.getName());
+					loadAndSaveProducts(file);
+					logger.info("Thread completed for file: {}",file.getName());
+				}catch(InventoryFeedServiceException e) {
+					messages.add(e.getMessage());
+				}
+				
+			},"Thread-"+file.getName());
+			threads.add(thread);
+			thread.start();
+		}
+		for(Thread thread:threads) {
+			try {
+				thread.join();
+			} catch (InterruptedException e) {
+				// TODO Auto-generated catch block
+				Thread.currentThread().interrupt();
+			}
+		}
+		messages.add("Progaram ended");
+		return messages;
 	}
 }

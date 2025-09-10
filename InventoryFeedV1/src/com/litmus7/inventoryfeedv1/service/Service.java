@@ -8,6 +8,8 @@ import com.litmus7.inventoryfeedv1.exceptions.CSVFileAccessException;
 import com.litmus7.inventoryfeedv1.exceptions.InventoryFeedDaoException;
 import com.litmus7.inventoryfeedv1.exceptions.InventoryFeedServiceException;
 import com.litmus7.inventoryfeedv1.exceptions.ValidationFailedException;
+import com.litmus7.inventoryfeedv1.util.ApplicationProperties;
+import com.litmus7.inventoryfeedv1.util.GetAllCSVFiles;
 import com.litmus7.inventoryfeedv1.util.MoveFile;
 import com.litmus7.inventoryfeedv1.util.ReadCSV;
 import com.litmus7.inventoryfeedv1.util.Validation;
@@ -42,7 +44,7 @@ public class Service {
 			}
 			int[] results;
 			results=dao.addProductsInBatch(products);
-			MoveFile.moveFile(file,Constants.PROCESSED_FOLDER);
+			MoveFile.moveFile(file,ApplicationProperties.getProcessedFolder());
 			return results;
 			
 		}catch(CSVFileAccessException e) {
@@ -51,8 +53,23 @@ public class Service {
 		}catch(ValidationFailedException e) {
 			throw new InventoryFeedServiceException(e.getMessage(),e);
 		}catch(InventoryFeedDaoException e) {
-			MoveFile.moveFile(file,Constants.ERROR_FOLDERS);
+			MoveFile.moveFile(file,ApplicationProperties.getErrorFolder());
 			throw new InventoryFeedServiceException(e.getMessage()+" for "+file.getName(),e);
 		}
+	}
+	public List<String> loadAndSaveProductsFromInput(String inputDir) throws InventoryFeedServiceException{
+		List<String> messages=new ArrayList<>();
+		File[] files=GetAllCSVFiles.getCSVFiles(inputDir);
+		if(files==null||files.length==0) {
+			throw new InventoryFeedServiceException("Files connot be empty");
+		}
+		for(File file:files) {
+			try {
+				loadAndSaveProducts(file);
+			}catch(InventoryFeedServiceException e) {
+				messages.add(e.getMessage());
+			}
+		}
+		return messages;
 	}
 }

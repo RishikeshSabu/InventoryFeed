@@ -118,3 +118,12 @@ Caused by: java.sql.SQLIntegrityConstraintViolationException: Duplicate entry '2
 	at com.mysql.cj.jdbc.ClientPreparedStatement.executeUpdateInternal(ClientPreparedStatement.java:1168) ~[mysql-connector-j-9.3.0.jar:9.3.0]
 	at com.mysql.cj.jdbc.ClientPreparedStatement.executeBatchSerially(ClientPreparedStatement.java:864) ~[mysql-connector-j-9.3.0.jar:9.3.0]
 	... 6 more
+2025-09-10 16:07:57,128 - com.litmus7.inventoryfeedv2.service.Service - [lambda$0] -(INFO) - Thread started for CSV2.csv - 
+2025-09-10 16:07:57,128 - com.litmus7.inventoryfeedv2.service.Service - [lambda$0] -(INFO) - Thread started for CSV1.csv - 
+2025-09-10 16:07:57,128 - com.litmus7.inventoryfeedv2.service.Service - [lambda$0] -(INFO) - Thread started for CSV3.csv - 
+2025-09-10 16:07:57,689 - com.litmus7.inventoryfeedv2.dao.InventoryFeedDao - [addProductsInBatch] -(INFO) - Batch inserted successfully - 
+2025-09-10 16:07:57,689 - com.litmus7.inventoryfeedv2.dao.InventoryFeedDao - [addProductsInBatch] -(INFO) - Batch inserted successfully - 
+2025-09-10 16:07:57,689 - com.litmus7.inventoryfeedv2.dao.InventoryFeedDao - [addProductsInBatch] -(INFO) - Batch inserted successfully - 
+2025-09-10 16:07:57,720 - com.litmus7.inventoryfeedv2.service.Service - [lambda$0] -(INFO) - Thread completed for file: CSV3.csv - 
+2025-09-10 16:07:57,720 - com.litmus7.inventoryfeedv2.service.Service - [lambda$0] -(INFO) - Thread completed for file: CSV2.csv - 
+2025-09-10 16:07:57,736 - com.litmus7.inventoryfeedv2.service.Service - [lambda$0] -(INFO) - Thread completed for file: CSV1.csv - 
